@@ -1,10 +1,13 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
+import ListingDetail from "../components/ListingDetail";
 
-const Detail = () => {
+const Detail = ({ route }) => {
+  const { item } = route.params;
+
   return (
     <View>
-      <Text>Detail Screen</Text>
+      <ListingDetail item={item} />
     </View>
   );
 };

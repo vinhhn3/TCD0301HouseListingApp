@@ -1,16 +1,19 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const ListingItem = ({ item }) => {
+const ListingItem = ({ item, navigation }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate("Detail", { item })}
+    >
       <Image style={styles.thumbnail} source={{ uri: item.thumbnail }} />
       <View>
         <Text style={styles.title}>{item.id}</Text>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.price}>{item.price}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

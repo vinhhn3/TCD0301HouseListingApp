@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import ListingItem from "../components/ListingItem";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +29,9 @@ const Home = () => {
         <FlatList
           keyExtractor={(item) => String(item.id)}
           data={data}
-          renderItem={({ item }) => <ListingItem item={item} />}
+          renderItem={({ item }) => (
+            <ListingItem item={item} navigation={navigation} />
+          )}
         />
       )}
     </View>
